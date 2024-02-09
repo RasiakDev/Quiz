@@ -8,7 +8,7 @@
 </head>
 <body>
     {% include "header.html" %}    
-    <h2 class="header_text" style="background-color: rgb(228, 77, 38, 0.95); margin: auto;">TESTO NJOHURITE</h2>
+    <h2 class="header_text" style="background-color: rgb(228, 77, 38, 0.65); margin: auto;">Quiz</h2>
     <h2 class="header_text">{{questions.html}}</h2>
         <div class="container">
             <div style="display: inline-block; background-color: red; height: 100px; z-index:3 ;">
@@ -18,53 +18,66 @@
                 <div class="d-flex flex-column">
                     <label  for="Html"><h4 class="logo_label">Html</h4></label>
                     <img class="logo rounded" name="Html" src="{% static "html_logo.png" %}" alt="Html logo">
+                    {% if user.is_authenticated %}
                     <div class="progress mt-3" style=" height: 25px;">
                         <div class="progress-bar progress-bar" role="progressbar" style="background-color: rgb(228, 77, 38); width: {{progress.html}}%;" aria-valuenow="{{progress.html}}" aria-valuemin="0" aria-valuemax="{{questions.html}}">
                             <p style="margin-top: 15px;">{{progress.html}}%</p>
                         </div>
                     </div>
+                    {%endif%}
                 </div>
                 </a>
                 <a href="{%url 'test' 2%}">
                 <div class="d-flex flex-column">
                     <label  for=""><h4 class="logo_label ">Css</h4></label>
                     <img class="logo rounded" src="{% static "css_logo.png" %}" width="150px"  alt="Css logo">
+                    {% if user.is_authenticated %}
                     <div class="progress mt-3" style=" height: 25px;">
                         <div class="progress-bar progress-bar" role="progressbar" style="background-color: rgb(2, 119, 189);width: {{progress.css}}%" aria-valuenow="{{progress.css}}" aria-valuemin="0" aria-valuemax="{{questions.html}}">
                             <p style="margin-top: 15px;">{{progress.css}}%</p>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
                 </a>
                 <a href="{%url 'test' 3%}">
                 <div class="d-flex flex-column">
                     <label  for=""><h4 class="logo_label">JavaScript</h4></label>
                     <img class="logo rounded" src="{% static "javascript_logo.png" %}" width="150px" height="150px"  alt="Javascript logo">
+                    {% if user.is_authenticated %}
                     <div class="progress mt-3" style=" height: 25px;">
                         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{progress.javascript}}%" aria-valuenow="{{progress.javascript}}" aria-valuemin="0" aria-valuemax="{{questions.javascript}}">
                             <p style="margin-top: 15px;">{{progress.javascript}}%</p>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
                 </a>
                 <a href="{%url 'test' 4%}">
                 <div class="d-flex flex-column">
                     <label  for=""><h4 class="logo_label">Php</h4></label>
                     <img class="logo rounded" src="{% static "php_logo.png" %}"  alt="php logo">
+                    {% if user.is_authenticated %}
                     <div class="progress mt-3" style="height: 25px;">
                         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{progress.php}}%" aria-valuenow="{{progress.php}}" aria-valuemin="0" aria-valuemax="{{questions.php}}">
                             <p style="margin-top: 15px;">{{progress.php}}%</p>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
                 </a>            
             </div>
+
         </div>
         {% if user.is_authenticated %}
         <div class="d-flex justify-content-center">
             <a class="btn btn-primary" href="{% url "create_question" %}">Shto Pyetje</a>
         </div>
         {% endif %}
-        
+        {%if not user.is_authenticated%}
+        <a href="{% url "login" %}">
+        <h2 style="text-align: center; color: white">Logohu te ruash rezultatet</h2>
+        </a>
+        {% endif %}
 </body>
 </html>

@@ -16,7 +16,7 @@
         
         {% if answer == 'correct' %}
         <div class="d-flex justify-content-center bg-success p-5 m-3 rounded" >
-            <h2>Pergjigje e Sakte</h2>
+            <h2 style="font-size: 50px">Pergjigje e Sakte</h2>
         </div>
         {% else %}
         <div class="d-flex justify-content-center bg-danger p-5 m-3 rounded" >
@@ -24,8 +24,8 @@
         </div>    
         {% endif %}
         <div class="d-flex justify-content-end">
-            <a class="btn btn-primary m-3 p-2" href="{% url "test" category %}">
-                Pyetje tjeter
+            <a class="btn  m-3 p-2" style="width:100%; background-color:rgb(228, 77, 38, 0.95)" href="{% url "test" category %}">
+                <h2>Pyetje tjeter</h2>
             </a>
         </div>
     </div>

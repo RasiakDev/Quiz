@@ -7,14 +7,16 @@ class Kategori(models.Model):
 
     def __str__(self) -> str:
         return self.kategoria
+    class Meta:
+       verbose_name_plural = "Kategorite"
 
 class Pyetje(models.Model):
     question = models.TextField()
-    option1 = models.CharField(max_length=100)
-    option2 = models.CharField(max_length=100)
-    option3 = models.CharField(max_length=100, blank=True, null=True)
-    option4 = models.CharField(max_length=100, blank=True, null=True)
-    correct = models.CharField(max_length=100)
+    option1 = models.CharField(max_length=255, verbose_name="Opsioni 1")
+    option2 = models.CharField(max_length=255, verbose_name="Opsioni 2")
+    option3 = models.CharField(max_length=255, verbose_name="Opsioni 3", blank=True, null=True)
+    option4 = models.CharField(max_length=255, verbose_name="Opsioni 4", blank=True, null=True)
+    correct = models.CharField(max_length=255, verbose_name="Pergjigja e sakte")
     category = models.ForeignKey(Kategori, on_delete=models.CASCADE)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
