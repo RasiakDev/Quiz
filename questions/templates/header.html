@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    {% load bootstrap5 %}
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark" style="linear-gradient(to right, rgb(114, 58, 180) 0%, rgb(201, 53, 162) 50%, rgb(236, 75, 94) 100%);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}">Quiz</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'test' 1 %}"> 
+              Html               
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'test' 2 %}"> 
+              Css               
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'test' 3 %}"> 
+              JavaScript               
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'test' 4 %}"> 
+              Php               
+            </a>
+          </li>
+        </ul>
+        {% if user.is_authenticated %}
+        <h5 style="color: aliceblue; margin: 6px 15px;">{{user.first_name}} {{user.last_name}}</h5>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'logout' %}">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+        {% else %}
+        <form class="form-inline my-2 my-lg-0" action="{% url 'login' %}">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+        </form>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'register' %}">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</button>
+        </form>
+        {% endif %}      
+      </div>
+    </div>
+  </nav>
+</body>
+</html>

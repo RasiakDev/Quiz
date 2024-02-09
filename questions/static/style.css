@@ -1,0 +1,70 @@
+body{
+    background-image: url('test.jpg');
+    /* background-image: linear-gradient(to right, rgb(202, 211, 215) 0%, rgb(131, 168, 186) 35%,rgb(79, 157, 196)50%,rgb(50, 151, 201) 65%, rgb(44, 117, 185)  80%, rgb(35, 124, 207) 100%); */
+    /* background-image: linear-gradient(to right, rgb(202, 211, 215), rgb(35, 124, 207)) */
+}
+.logo_label{
+    color: rgb(246, 246, 246);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+    text-align: center;
+
+}
+
+.header_text{
+    text-align: center;
+    font-size: 6rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(246, 246, 246);
+}
+
+.button-container{
+    width: 100px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.logo{
+    width: 150px;
+    height: 150px;
+}
+.logo:hover{
+    width: 200px;
+    height: 200px;
+}
+
+.logo-php{
+    width:230px;
+    height:230px;
+}
+
+.logo-php:hover{
+    width: 280px;
+    height: 280px;
+}
+
+#not_found{
+    width: 60%; 
+    height: 500px; 
+    background-image: url('pikepyetje.jpg');
+    background-size: contain;
+    margin: auto; border-radius: 10px; 
+    padding: 10px;
+}
+.answer_container{
+    background-color: white;
+}
+.answer_container:hover{
+    background-color: rgb(225, 222, 222);
+}
+
+#test_container{
+    background-image: url('pikepyetje.jpg'); border-radius: 10px; padding: 40px 10px 20px 10px; background-size: cover;
+}

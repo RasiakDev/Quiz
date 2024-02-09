@@ -1,0 +1,21 @@
+{% include "header.html" %} {% load crispy_forms_tags %}
+
+    <div class="container pt-3 d-flex justify-content-center">
+        <div class="col-lg-8 bg-white p-3 rounded">
+            <form method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">                
+                {{ form.question|as_crispy_field }}               
+            </div>
+            {{ form.option1|as_crispy_field }}
+            {{ form.option2|as_crispy_field }}
+            {{ form.option3|as_crispy_field }}
+            {{ form.option4|as_crispy_field }}
+            {{ form.correct|as_crispy_field }}
+            {{ form.category|as_crispy_field }}
+            <button style="float: right;" type="submit" class="btn btn-success mt-3">Shto</button>
+            <a style="float: right;" type="submit" class="btn btn-danger mt-3" href="{% url "index" %}">Anullo</a>
+            </form>
+
+        </div>
+    </div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    {% include "header.html" %}
+    <div class="container">
+        
+        {% if answer == 'correct' %}
+        <div class="d-flex justify-content-center bg-success p-5 m-3 rounded" >
+            <h2>Pergjigje e Sakte</h2>
+        </div>
+        {% else %}
+        <div class="d-flex justify-content-center bg-danger p-5 m-3 rounded" >
+            <h2>Pergjigje e Gabuar</h2>
+        </div>    
+        {% endif %}
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-primary m-3 p-2" href="{% url "test" category %}">
+                Pyetje tjeter
+            </a>
+        </div>
+    </div>
+</body>
+</html>
