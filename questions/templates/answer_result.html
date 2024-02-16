@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Result</title>
     {% load static %}
     {% load bootstrap5 %}
     {% bootstrap_css %}
@@ -16,7 +16,7 @@
         
         {% if answer == 'correct' %}
         <div class="d-flex justify-content-center bg-success p-5 m-3 rounded" >
-            <h2 style="font-size: 50px">Pergjigje e Sakte</h2>
+            <h2 style="font-size: 50px; margin: 20px;">Pergjigje e Sakte</h2>
         </div>
         {% else %}
         <div class="d-flex justify-content-center bg-danger p-5 m-3 rounded" >
@@ -24,10 +24,24 @@
         </div>    
         {% endif %}
         <div class="d-flex justify-content-end">
-            <a class="btn  m-3 p-2" style="width:100%; background-color:rgb(228, 77, 38, 0.95)" href="{% url "test" category %}">
-                <h2>Pyetje tjeter</h2>
+            <a class="btn  m-3 p-2" style="float: left;width: 35%;background-color: rgb(146,68,170, 0.8) ;  color: white;" href="{% url "index"  %}">
+                <h2>Kthehu ne faqen kryesore  </h2>
+                <img src="/static/home-white.png" alt="arrow" width="40px">
+                
             </a>
+            
+                <a 
+                class="btn  m-3 p-2" 
+                style="float: right; width: 65%;background-color: rgba(112, 107, 200, 0.8) ;
+                 color: white; display: flex; justify-content: center; align-items: center; height: 100px;" 
+                href="{% url "test" category%}">
+                    <h2 style="margin-right: 10px;">Pyetje tjeter  </h2>
+                    <img src="/static/arrow-white.png" alt="arrow" width="50px">
+                </a>
+
+            
         </div>
     </div>
+    
 </body>
 </html>

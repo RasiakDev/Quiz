@@ -71,21 +71,22 @@ a:hover{
     background-size: cover;
 }
 
-#login_button{
+.login-logout-btn{
     border-color: rgb(146,68,170); 
-    color: rgb(146,68,170); margin:10px
+    color: rgb(146,68,170); 
+    margin:10px
 }
 
-#login_button:hover{
+.login-logout-btn:hover{
     border-color: rgb(146,68,170);  
     margin:10px; background-color: rgb(187, 61, 225, 0.8) ; color: white;
 }
 
-#register_button{
+.register-btn{
     border-color: rgb(99,95,190); 
     color:rgb(99,95,190) 
 }
-#register_button:hover{
+.register-btn:hover{
     border-color: rgb(99,95,190); 
     color:white;
     background-color: rgba(112, 107, 200, 0.8); 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <title>Document</title>
+    <title>Quiz</title>
 </head>
 <body>
     {% include "header.html" %}    
@@ -19,7 +19,7 @@
                     <img class="logo rounded" name="Html" src="{% static "html_logo.png" %}" alt="Html logo">
                     {% if user.is_authenticated %}
                     <div class="progress mt-3" style=" height: 25px;">
-                        <div class="progress-bar progress-bar" role="progressbar" style="background-color: rgb(228, 77, 38); width: {{progress.html}}%;" aria-valuenow="{{progress.html}}" aria-valuemin="0" aria-valuemax="{{questions.html}}">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color: rgb(210, 77, 38); width: {{progress.html}}%;" aria-valuenow="{{progress.html}}" aria-valuemin="0" aria-valuemax="{{questions.html}}">
                             <p style="margin-top: 15px;">{{progress.html}}%</p>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                     <img class="logo rounded" src="{% static "css_logo.png" %}" width="150px"  alt="Css logo">
                     {% if user.is_authenticated %}
                     <div class="progress mt-3" style=" height: 25px;">
-                        <div class="progress-bar progress-bar" role="progressbar" style="background-color: rgb(2, 119, 189);width: {{progress.css}}%" aria-valuenow="{{progress.css}}" aria-valuemin="0" aria-valuemax="{{questions.html}}">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color: rgb(2, 119, 189);width: {{progress.css}}%" aria-valuenow="{{progress.css}}" aria-valuemin="0" aria-valuemax="{{questions.html}}">
                             <p style="margin-top: 15px;">{{progress.css}}%</p>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                     <img class="logo rounded" src="{% static "javascript_logo.png" %}" width="150px" height="150px"  alt="Javascript logo">
                     {% if user.is_authenticated %}
                     <div class="progress mt-3" style=" height: 25px;">
-                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{progress.javascript}}%" aria-valuenow="{{progress.javascript}}" aria-valuemin="0" aria-valuemax="{{questions.javascript}}">
+                        <div class="progress-bar progress-bar-striped"  role="progressbar" style="width: {{progress.javascript}}%; background-color: rgb(253, 202, 0);" aria-valuenow="{{progress.javascript}}" aria-valuemin="0" aria-valuemax="{{questions.javascript}}">
                             <p style="margin-top: 15px;">{{progress.javascript}}%</p>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                     <img class="logo rounded" src="{% static "php_logo.png" %}"  alt="php logo">
                     {% if user.is_authenticated %}
                     <div class="progress mt-3" style="height: 25px;">
-                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{progress.php}}%" aria-valuenow="{{progress.php}}" aria-valuemin="0" aria-valuemax="{{questions.php}}">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{progress.php}}%; background-color: rgb(91, 102, 164)" aria-valuenow="{{progress.php}}" aria-valuemin="0" aria-valuemax="{{questions.php}}">
                             <p style="margin-top: 15px;">{{progress.php}}%</p>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
         </div>
         {% endif %}
         {%if not user.is_authenticated%}
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center" style="margin-top: 90px;">
             <div id="message_container">
                 <a href="{% url "login" %}">
                 <h2 style="text-align: center; color: white">Logohu te ruash rezultatet</h2>

@@ -69,7 +69,7 @@ def html_test(request, category_id):
     try:
         if request.user.is_authenticated:
             answered = [x.question.id for x in Progress.objects.filter(category__id=category_id, user=request.user)]
-            pyetjet = list(Pyetje.objects.filter(category__id=category_id).exclude(id__in=answered))
+            pyetjet = Pyetje.objects.filter(category__id=category_id).exclude(id__in=answered)
             random_question = random.choice(pyetjet)
             context = {'question': random_question}        
             return render(request, "test.html", context)
@@ -85,9 +85,8 @@ def html_test(request, category_id):
                 random_question = random.choice(pyetjet)
                 context = {'question': random_question}
             return render(request, "test.html", context)
-    except:
+    except Exception as e:
         return render(request, "not_found.html")
-    # random_item = random.sample(pyetjet, 1)
     
 
 def test_check(request, question_id, answer):

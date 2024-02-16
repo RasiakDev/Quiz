@@ -32,3 +32,7 @@ class Progress(models.Model):
     question = models.ForeignKey(Pyetje, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
+    class Meta:
+        verbose_name_plural = "Pergjigjet"
+    
+ 
