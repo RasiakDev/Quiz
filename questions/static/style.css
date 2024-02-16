@@ -40,15 +40,7 @@ a:hover{
     height: 200px;
 }
 
-.logo-php{
-    width:230px;
-    height:230px;
-}
 
-.logo-php:hover{
-    width: 280px;
-    height: 280px;
-}
 
 #not_found{
     width: 60%; 
@@ -60,9 +52,13 @@ a:hover{
 }
 .answer_container{
     background-color: white;
+    padding: 10px 5px 5px 5px;
+    border-radius: 3px;
 }
 .answer_container:hover{
-    background-color: rgb(225, 222, 222);
+    background-color: rgb(146,68,170);
+    border-color: rgb(146,68,170);
+    color: white;
 }
 
 #test_container{
@@ -101,3 +97,12 @@ a:hover{
     align-items: center;
     border-radius: 6px;
 }
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
