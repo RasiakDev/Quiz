@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from .models import Pyetje, Progress
+from questions.models import Pyetje, Progress
 import random
 from django.shortcuts import render, redirect
 from . import forms
@@ -11,57 +11,58 @@ from django.template.defaulttags import register
 
 
 def index(request):
-    if request.user.is_authenticated:
-        questions = Pyetje.objects.all()
-        progress_query = Progress.objects.filter(user=request.user)
-        questions_html, questions_css, questions_javascript, questions_php = 0 , 0, 0, 0
-        progress_html, progress_css, progress_javascript, progress_php = 0 , 0, 0, 0
-        for question in questions:
-            if question.category.id == 1:
-                questions_html +=1
-            elif question.category.id == 2:
-                questions_css +=1
-            elif question.category.id == 3:
-                questions_javascript +=1
-            elif question.category.id == 4:
-                questions_php +=1
+    if request.method == 'GET':
+        if request.user.is_authenticated:
+            questions = Pyetje.objects.all()
+            progress_query = Progress.objects.filter(user=request.user)
+            questions_html, questions_css, questions_javascript, questions_php = 0 , 0, 0, 0
+            progress_html, progress_css, progress_javascript, progress_php = 0 , 0, 0, 0
+            for question in questions:
+                if question.category.id == 1:
+                    questions_html +=1
+                elif question.category.id == 2:
+                    questions_css +=1
+                elif question.category.id == 3:
+                    questions_javascript +=1
+                elif question.category.id == 4:
+                    questions_php +=1
 
-        for progress in progress_query:
-            if progress.category.id == 1:
-                progress_html +=1
-            elif progress.category.id == 2:
-                progress_css +=1
-            elif progress.category.id == 3:
-                progress_javascript +=1
-            elif progress.category.id == 4:
-                progress_php +=1
+            for progress in progress_query:
+                if progress.category.id == 1:
+                    progress_html +=1
+                elif progress.category.id == 2:
+                    progress_css +=1
+                elif progress.category.id == 3:
+                    progress_javascript +=1
+                elif progress.category.id == 4:
+                    progress_php +=1
 
-        progress= {
-            'html': 0,
-            'css': 0, 
-            'javascript': 0,
-            'php': 0
-        }
+            progress= {
+                'html': 0,
+                'css': 0, 
+                'javascript': 0,
+                'php': 0
+            }
 
-        if progress_html != 0 or questions_html != 0:
-            progress['html'] = int(progress_html / questions_html * 100)
-        if progress_javascript != 0 or questions_javascript != 0:
-            progress['javascript'] = int(progress_javascript / questions_javascript * 100)
-        if progress_css != 0 or questions_css != 0:
-            progress['css'] = int(progress_css / questions_css * 100)
-        if progress_php != 0 or questions_php != 0:
-            progress['php'] = int(progress_php / questions_php * 100)
+            if progress_html != 0 or questions_html != 0:
+                progress['html'] = int(progress_html / questions_html * 100)
+            if progress_javascript != 0 or questions_javascript != 0:
+                progress['javascript'] = int(progress_javascript / questions_javascript * 100)
+            if progress_css != 0 or questions_css != 0:
+                progress['css'] = int(progress_css / questions_css * 100)
+            if progress_php != 0 or questions_php != 0:
+                progress['php'] = int(progress_php / questions_php * 100)
 
 
-        return render(request, "index.html", {"progress": progress})
-    else:
-        progress= {
-            'html': 0,
-            'css': 0, 
-            'javascript': 0,
-            'php': 0
-        }
-        return render(request, "index.html", {"progress": progress})
+            return render(request, "index.html", {"progress": progress})
+        else:
+            progress= {
+                'html': 0,
+                'css': 0, 
+                'javascript': 0,
+                'php': 0
+            }
+            return render(request, "index.html", {"progress": progress})
 
 
 def html_test(request, category_id):
@@ -69,7 +70,6 @@ def html_test(request, category_id):
         if request.user.is_authenticated:
             answered = [x.question.id for x in Progress.objects.filter(category__id=category_id, user=request.user)]
             pyetjet = list(Pyetje.objects.filter(category__id=category_id).exclude(id__in=answered))
-            print("Pyetjet", pyetjet)
             random_question = random.choice(pyetjet)
             context = {'question': random_question}        
             return render(request, "test.html", context)
@@ -175,3 +175,4 @@ def create_question(request):
 @register.filter
 def get_item(dictionary, key):
     return dictionary.get(key)
+    

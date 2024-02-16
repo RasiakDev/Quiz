@@ -17,12 +17,12 @@ class RegisterForm(UserCreationForm):
         fields = ['username','email','first_name','last_name', 'password1','password2'] 
 
 class QuestionForm(forms.Form):
-    question = forms.CharField(widget=forms.Textarea(attrs={"rows":"5"}))
-    option1 = forms.CharField(max_length=100)
-    option2 = forms.CharField(max_length=100)
-    option3 = forms.CharField(max_length=100, required=False)
-    option4 = forms.CharField(max_length=100, required=False)
-    correct = forms.CharField(max_length=100)
-    category = forms.ModelChoiceField(Kategori.objects.all())
+    question = forms.CharField(widget=forms.Textarea(attrs={"rows":"5"}),label="Pyetja")
+    option1 = forms.CharField(max_length=100,label="Optioni 1")
+    option2 = forms.CharField(max_length=100,label="Optioni 2")
+    option3 = forms.CharField(max_length=100, required=False,label="Optioni 3")
+    option4 = forms.CharField(max_length=100, required=False,label="Opsioni 4")
+    correct = forms.CharField(max_length=100,label="Pergjigja e sakte")
+    category = forms.ModelChoiceField(Kategori.objects.all(),label="Kategoria")
     
   

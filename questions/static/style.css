@@ -53,7 +53,7 @@ a:hover{
 #not_found{
     width: 60%; 
     height: 500px; 
-    background-image: url('pikepyetje.jpg');
+    background-image: url('pikpyetje.jpg');
     background-size: contain;
     margin: auto; border-radius: 10px; 
     padding: 10px;
@@ -66,5 +66,37 @@ a:hover{
 }
 
 #test_container{
-    background-image: url('pikepyetje.jpg'); border-radius: 10px; padding: 40px 10px 20px 10px; background-size: cover;
+    background-image: url('pikepyetje.jpg'); 
+    border-radius: 10px; padding: 40px 10px 20px 10px; 
+    background-size: cover;
+}
+
+#login_button{
+    border-color: rgb(146,68,170); 
+    color: rgb(146,68,170); margin:10px
+}
+
+#login_button:hover{
+    border-color: rgb(146,68,170);  
+    margin:10px; background-color: rgb(187, 61, 225, 0.8) ; color: white;
+}
+
+#register_button{
+    border-color: rgb(99,95,190); 
+    color:rgb(99,95,190) 
+}
+#register_button:hover{
+    border-color: rgb(99,95,190); 
+    color:white;
+    background-color: rgba(112, 107, 200, 0.8); 
+}
+
+#message_container{
+    background-image: linear-gradient(rgb(146,68,170, 0.8), rgb(99,95,190,0.8)); 
+    width: 30%; 
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
 }
